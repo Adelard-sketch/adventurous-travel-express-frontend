@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:5000"; 
-const API_BASE_URL = "http://localhost:5000/api"; 
+const API_URL = "https://adventurous-travel-express-backend.vercel.app"; 
+const API_BASE_URL = "https://adventurous-travel-express-backend.vercel.app/api"; 
 
 const api = {
   get: async (endpoint, token) => {
