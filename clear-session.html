@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .btn-success {
+            background: #48bb78;
+        }
+        .btn-success:hover {
+            background: #38a169;
+        }
+        .message {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .message.show {
+            display: block;
+        }
+        .message.success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Session Manager</h1>
+        <p>Clear your session and login again with fresh credentials</p>
+        
+        <div id="message" class="message"></div>
+        
+        <button class="btn" onclick="clearSession()">Clear Session & Logout</button>
+        <br>
+        <button class="btn btn-success" onclick="window.location.href='login.html'">Go to Login</button>
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+            <h3>Admin Credentials</h3>
+            <p><strong>Email:</strong> adelborauzima@gmail.com</p>
+            <p><strong>Password:</strong> Adel123$</p>
+        </div>
+    </div>
+
+    <script>
+        function clearSession() {
+            // Clear all localStorage
+            localStorage.clear();
+            
+            // Clear all sessionStorage
+            sessionStorage.clear();
+            
+            // Show success message
+            const message = document.getElementById('message');
+            message.textContent = '✅ Session cleared successfully! You can now login again.';
+            message.className = 'message success show';
+            
+            console.log('Session cleared');
+        }
+        
+        // Auto-clear on load if requested
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('auto') === 'true') {
+            clearSession();
+        }
+    </script>
+</body>
+</html>

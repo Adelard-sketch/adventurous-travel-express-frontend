@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Top Header -->
+  <header class="admin-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="./assets/adventurous_logo.png" alt="Logo" />
+          <span>Admin Dashboard</span>
+        </div>
+        <div class="admin-info">
+          <span id="adminName">Admin User</span>
+          <button class="btn-logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="dashboard">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-section="bookings">
+          <i class="fas fa-calendar-check"></i>
+          <span>All Bookings</span>
+        </a>
+        <a href="#" class="nav-item" data-section="pending">
+          <i class="fas fa-clock"></i>
+          <span>Pending Bookings</span>
+          <span class="badge" id="pendingCount">0</span>
+        </a>
+        <a href="#" class="nav-item" data-section="users">
+          <i class="fas fa-users"></i>
+          <span>Users</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-content">
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="content-section active">
+        <h1>Dashboard Overview</h1>
+        
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="totalBookings">0</h3>
+              <p>Total Bookings</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="pendingBookingsCount">0</h3>
+              <p>Pending Bookings</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="confirmedBookingsCount">0</h3>
+              <p>Confirmed Bookings</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="totalUsers">0</h3>
+              <p>Total Users</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Types Chart -->
+        <div class="chart-container">
+          <h2>Bookings by Type</h2>
+          <div id="bookingTypes" class="booking-types-grid"></div>
+        </div>
+
+        <!-- Recent Bookings -->
+        <div class="recent-bookings">
+          <h2>Recent Bookings</h2>
+          <div id="recentBookingsList" class="bookings-list"></div>
+        </div>
+      </section>
+
+      <!-- All Bookings Section -->
+      <section id="bookings" class="content-section">
+        <div class="section-header">
+          <h1>All Bookings</h1>
+          <div class="filters">
+            <select id="filterType" class="filter-select">
+              <option value="">All Types</option>
+              <option value="flight">Flights</option>
+              <option value="hotel">Hotels</option>
+              <option value="taxi">Taxis</option>
+              <option value="tour">Tours</option>
+              <option value="park">Parks</option>
+            </select>
+            <select id="filterStatus" class="filter-select">
+              <option value="">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+        <div id="allBookingsList" class="bookings-table-container"></div>
+      </section>
+
+      <!-- Pending Bookings Section -->
+      <section id="pending" class="content-section">
+        <h1>Pending Bookings</h1>
+        <div id="pendingBookingsList" class="bookings-table-container"></div>
+      </section>
+
+      <!-- Users Section -->
+      <section id="users" class="content-section">
+        <h1>All Users</h1>
+        <div id="usersList" class="users-table-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Booking Detail Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="bookingDetails"></div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

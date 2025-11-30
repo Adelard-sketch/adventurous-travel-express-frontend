@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Rentals - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/taxis.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-content">
+        <div>
+          <div class="currency-selector">
+            <i class="fas fa-globe"></i>
+            <select id="currency">
+              <option>USD</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+          </div>
+          <div class="language-selector">
+            <i class="fas fa-language"></i>
+            <select id="languageSelector" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="sw">Kiswahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="top-header-right">
+          <a href="dashboard.html" class="top-link"><i class="fas fa-tachometer-alt"></i> <span data-translate="dashboard">Dashboard</span></a>
+          <a href="#" class="top-link"><i class="fas fa-question-circle"></i> <span data-translate="help">Help</span></a>
+          <a href="signup.html" class="btn-top-register" data-translate="register">Register</a>
+          <a href="login.html" class="btn-top-signin" data-translate="signin">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="./assets/adventurousLogo.png" alt="Logo" />
+          <span>Adventurous Travels</span>
+        </a>
+        
+        <div class="nav-tabs">
+          <a href="index.html" class="nav-tab">
+            <i class="fas fa-home"></i>
+            <span data-translate="home">Home</span>
+          </a>
+          <a href="hotels.html" class="nav-tab">
+            <i class="fas fa-bed"></i>
+            <span data-translate="stays">Stays</span>
+          </a>
+          <a href="flights.html" class="nav-tab">
+            <i class="fas fa-plane"></i>
+            <span data-translate="flights">Flights</span>
+          </a>
+          <a href="taxis.html" class="nav-tab active">
+            <i class="fas fa-car"></i>
+            <span data-translate="car_rentals">Car rentals</span>
+          </a>
+          <a href="parks.html" class="nav-tab">
+            <i class="fas fa-mountain"></i>
+            <span data-translate="attractions">Attractions</span>
+          </a>
+          <a href="tours.html" class="nav-tab">
+            <i class="fas fa-suitcase-rolling"></i>
+            <span data-translate="tour_packages">Tour Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Booking Section -->
+  <section class="taxi-booking-section">
+    <div class="container">
+      <div class="booking-layout">
+        <!-- Booking Form -->
+        <div class="taxi-form-container">
+          <div class="taxi-card">
+            <div class="ride-type-selector">
+              <button class="ride-type active" data-type="standard">
+                <i class="fas fa-car"></i>
+                <span>Standard Ride</span>
+              </button>
+              <button class="ride-type" data-type="airport">
+                <i class="fas fa-plane"></i>
+                <span>Airport Transfer</span>
+              </button>
+              <button class="ride-type" data-type="hourly">
+                <i class="fas fa-clock"></i>
+                <span>Hourly Rental</span>
+              </button>
+            </div>
+
+            <form id="taxiForm" class="taxi-booking-form">
+              <div class="form-group">
+                <label><i class="fas fa-map-marker-alt"></i> Pick-up Location</label>
+                <select 
+                  name="pickup" 
+                  id="pickup-select"
+                  required
+                >
+                  <option value="">Select pickup location</option>
+                </select>
+                <button type="button" class="btn-current-location">
+                  <i class="fas fa-crosshairs"></i> Use current location
+                </button>
+              </div>
+
+              <div class="form-group">
+                <label><i class="fas fa-map-marker-alt"></i> Drop-off Location</label>
+                <select 
+                  name="dropoff" 
+                  id="dropoff-select"
+                  required
+                >
+                  <option value="">Select dropoff location</option>
+                </select>
+              </div>
+
+              <div class="form-row form-row-four">
+                <div class="form-group">
+                  <label><i class="fas fa-calendar-alt"></i> Pick-up Date</label>
+                  <input type="date" name="date" required />
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fas fa-clock"></i> Pick-up Time</label>
+                  <input type="time" name="time" required />
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fas fa-users"></i> Passengers</label>
+                  <select name="passengers">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5+</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fas fa-suitcase"></i> Luggage</label>
+                  <div class="luggage-selector">
+                    <button type="button" class="luggage-btn" data-count="minus">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="number" name="luggage" value="0" min="0" max="10" readonly />
+                    <button type="button" class="luggage-btn" data-count="plus">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-checkbox">
+                <label>
+                  <input type="checkbox" name="returnTrip" />
+                  <span>Book return trip</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn-search-taxis">
+                <i class="fas fa-search"></i> Find Available Rides
+              </button>
+            </form>
+          </div>
+
+          <!-- Available Vehicles -->
+          <div id="availableVehicles" class="available-vehicles">
+            <h3>Available Vehicles</h3>
+            
+            <div class="vehicle-card">
+              <div class="vehicle-image">
+                <img src="./assets/car1.jpeg" alt="Sedan" />
+              </div>
+              <div class="vehicle-info">
+                <h4>Standard Sedan</h4>
+                <p class="vehicle-features">
+                  <i class="fas fa-users"></i> 4 passengers
+                  <i class="fas fa-suitcase"></i> 2 bags
+                </p>
+                <p class="vehicle-description">Comfortable rides for everyday trips</p>
+                <div class="vehicle-rating">
+                  <i class="fas fa-star"></i> 4.8 (1,234 rides)
+                </div>
+              </div>
+              <div class="vehicle-price">
+                <span class="price-label">from</span>
+                <h3>$25</h3>
+                <button class="btn-select-vehicle">Select</button>
+              </div>
+            </div>
+
+            <div class="vehicle-card featured">
+              <div class="popular-badge">Most Popular</div>
+              <div class="vehicle-image">
+                <img src="./assets/car2.jpg" alt="SUV" />
+              </div>
+              <div class="vehicle-info">
+                <h4>Premium SUV</h4>
+                <p class="vehicle-features">
+                  <i class="fas fa-users"></i> 6 passengers
+                  <i class="fas fa-suitcase"></i> 4 bags
+                </p>
+                <p class="vehicle-description">Extra space for groups and families</p>
+                <div class="vehicle-rating">
+                  <i class="fas fa-star"></i> 4.9 (2,456 rides)
+                </div>
+              </div>
+              <div class="vehicle-price">
+                <span class="price-label">from</span>
+                <h3>$45</h3>
+                <button class="btn-select-vehicle primary">Select</button>
+              </div>
+            </div>
+
+            <div class="vehicle-card">
+              <div class="vehicle-image">
+                <img src="./assets/carBest.jpg" alt="Luxury" />
+              </div>
+              <div class="vehicle-info">
+                <h4>Luxury Car</h4>
+                <p class="vehicle-features">
+                  <i class="fas fa-users"></i> 4 passengers
+                  <i class="fas fa-suitcase"></i> 3 bags
+                </p>
+                <p class="vehicle-description">Premium comfort and style</p>
+                <div class="vehicle-rating">
+                  <i class="fas fa-star"></i> 5.0 (892 rides)
+                </div>
+              </div>
+              <div class="vehicle-price">
+                <span class="price-label">from</span>
+                <h3>$75</h3>
+                <button class="btn-select-vehicle">Select</button>
+              </div>
+            </div>
+
+            <div class="vehicle-card">
+              <div class="vehicle-image">
+                <img src="./assets/carBest2.jpg" alt="Van" />
+              </div>
+              <div class="vehicle-info">
+                <h4>Large Van</h4>
+                <p class="vehicle-features">
+                  <i class="fas fa-users"></i> 8 passengers
+                  <i class="fas fa-suitcase"></i> 6 bags
+                </p>
+                <p class="vehicle-description">Perfect for large groups</p>
+                <div class="vehicle-rating">
+                  <i class="fas fa-star"></i> 4.7 (567 rides)
+                </div>
+              </div>
+              <div class="vehicle-price">
+                <span class="price-label">from</span>
+                <h3>$95</h3>
+                <button class="btn-select-vehicle">Select</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Sidebar -->
+        <aside class="taxi-sidebar">
+          <div class="sidebar-card">
+            <h3><i class="fas fa-shield-alt"></i> Why Choose Us?</h3>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div>
+                <h4>Professional Drivers</h4>
+                <p>All drivers are verified and licensed</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <h4>Transparent Pricing</h4>
+                <p>No hidden fees, pay what you see</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4>24/7 Availability</h4>
+                <p>Book anytime, day or night</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fas fa-redo-alt"></i>
+              </div>
+              <div>
+                <h4>Free Cancellation</h4>
+                <p>Cancel up to 1 hour before pickup</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card promo-card">
+            <div class="promo-icon">
+              <i class="fas fa-gift"></i>
+            </div>
+            <h4>First Ride Discount</h4>
+            <p>Get 20% off your first booking</p>
+            <div class="promo-code">
+              <strong>FIRST20</strong>
+            </div>
+            <small>Terms and conditions apply</small>
+          </div>
+
+          <div class="sidebar-card contact-card">
+            <h4><i class="fas fa-headset"></i> Need Help?</h4>
+            <p>Contact our support team</p>
+            <div class="contact-options">
+              <a href="tel:+233123456789" class="contact-btn">
+                <i class="fas fa-phone"></i> Call Us
+              </a>
+              <a href="#" class="contact-btn">
+                <i class="fas fa-comments"></i> Chat
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 Adventurous Travel Express. All rights reserved.</p>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ghana-locations.js"></script>
+  <script src="js/taxis.js"></script>
+</body>
+</html>

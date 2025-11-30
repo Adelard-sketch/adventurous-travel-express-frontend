@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>National Parks & Mountains - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/parks.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-content">
+        <div>
+          <div class="currency-selector">
+            <i class="fas fa-globe"></i>
+            <select id="currency">
+              <option>USD</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+          </div>
+          <div class="language-selector">
+            <i class="fas fa-language"></i>
+            <select id="languageSelector" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="sw">Kiswahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="top-header-right">
+          <a href="dashboard.html" class="top-link"><i class="fas fa-tachometer-alt"></i> <span data-translate="dashboard">Dashboard</span></a>
+          <a href="#" class="top-link"><i class="fas fa-question-circle"></i> <span data-translate="help">Help</span></a>
+          <a href="signup.html" class="btn-top-register" data-translate="register">Register</a>
+          <a href="login.html" class="btn-top-signin" data-translate="signin">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="./assets/adventurousLogo.png" alt="Logo" />
+          <span>Adventurous Travels</span>
+        </a>
+        
+        <div class="nav-tabs">
+          <a href="index.html" class="nav-tab">
+            <i class="fas fa-home"></i>
+            <span data-translate="home">Home</span>
+          </a>
+          <a href="hotels.html" class="nav-tab">
+            <i class="fas fa-bed"></i>
+            <span data-translate="stays">Stays</span>
+          </a>
+          <a href="flights.html" class="nav-tab">
+            <i class="fas fa-plane"></i>
+            <span data-translate="flights">Flights</span>
+          </a>
+          <a href="taxis.html" class="nav-tab">
+            <i class="fas fa-car"></i>
+            <span data-translate="car_rentals">Car rentals</span>
+          </a>
+          <a href="parks.html" class="nav-tab active">
+            <i class="fas fa-mountain"></i>
+            <span data-translate="attractions">Attractions</span>
+          </a>
+          <a href="tours.html" class="nav-tab">
+            <i class="fas fa-suitcase-rolling"></i>
+            <span data-translate="tour_packages">Tour Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Featured Attractions Section -->
+  <section class="parks-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured National Parks & Mountains</h2>
+        <p>Experience the world's most spectacular natural wonders</p>
+      </div>
+
+      <div class="parks-grid">
+        <!-- Serengeti National Park -->
+        <div class="park-card">
+          <div class="park-image">
+            <img src="./assets/serengeti.jpg" alt="Serengeti" />
+            <div class="park-badge">Popular</div>
+            <button class="favorite-btn">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="park-content">
+            <div class="park-header">
+              <h3>Serengeti National Park</h3>
+              <div class="park-rating">
+                <i class="fas fa-star"></i>
+                <span>4.9</span>
+                <small>(2,456 reviews)</small>
+              </div>
+            </div>
+            <p class="park-location">
+              <i class="fas fa-map-marker-alt"></i> Tanzania
+            </p>
+            <p class="park-description">
+              Home to the great wildebeest migration and incredible wildlife diversity. Experience the raw beauty of African savanna.
+            </p>
+            <div class="park-features">
+              <span class="feature-tag"><i class="fas fa-paw"></i> Big Five</span>
+              <span class="feature-tag"><i class="fas fa-camera"></i> Safari Tours</span>
+              <span class="feature-tag"><i class="fas fa-hiking"></i> Guided Walks</span>
+            </div>
+            <div class="park-footer">
+              <div class="park-price">
+                <span class="from">from</span>
+                <h4>$150<small>/day</small></h4>
+              </div>
+              <button class="btn-book">Book Now <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kruger National Park -->
+        <div class="park-card">
+          <div class="park-image">
+            <img src="./assets/krunger.jpeg" alt="Kruger" />
+            <div class="park-badge bestseller">Best Seller</div>
+            <button class="favorite-btn">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="park-content">
+            <div class="park-header">
+              <h3>Kruger National Park</h3>
+              <div class="park-rating">
+                <i class="fas fa-star"></i>
+                <span>4.8</span>
+                <small>(3,124 reviews)</small>
+              </div>
+            </div>
+            <p class="park-location">
+              <i class="fas fa-map-marker-alt"></i> South Africa
+            </p>
+            <p class="park-description">
+              One of Africa's largest game reserves with unmatched wildlife viewing opportunities and luxury safari lodges.
+            </p>
+            <div class="park-features">
+              <span class="feature-tag"><i class="fas fa-paw"></i> Wildlife</span>
+              <span class="feature-tag"><i class="fas fa-binoculars"></i> Bird Watching</span>
+              <span class="feature-tag"><i class="fas fa-hotel"></i> Luxury Stays</span>
+            </div>
+            <div class="park-footer">
+              <div class="park-price">
+                <span class="from">from</span>
+                <h4>$125<small>/day</small></h4>
+              </div>
+              <button class="btn-book">Book Now <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maasai Mara -->
+        <div class="park-card">
+          <div class="park-image">
+            <img src="./assets/masaiMara.jpeg" alt="Maasai Mara" />
+            <button class="favorite-btn">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="park-content">
+            <div class="park-header">
+              <h3>Maasai Mara Reserve</h3>
+              <div class="park-rating">
+                <i class="fas fa-star"></i>
+                <span>4.9</span>
+                <small>(1,892 reviews)</small>
+              </div>
+            </div>
+            <p class="park-location">
+              <i class="fas fa-map-marker-alt"></i> Kenya
+            </p>
+            <p class="park-description">
+              Witness the spectacular wildebeest migration and encounter Africa's most iconic wildlife in their natural habitat.
+            </p>
+            <div class="park-features">
+              <span class="feature-tag"><i class="fas fa-horse"></i> Migration</span>
+              <span class="feature-tag"><i class="fas fa-users"></i> Cultural Tours</span>
+              <span class="feature-tag"><i class="fas fa-sun"></i> Hot Air Balloons</span>
+            </div>
+            <div class="park-footer">
+              <div class="park-price">
+                <span class="from">from</span>
+                <h4>$180<small>/day</small></h4>
+              </div>
+              <button class="btn-book">Book Now <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bwindi Impenetrable Forest -->
+        <div class="park-card">
+          <div class="park-image">
+            <img src="./assets/gorilla.jpeg" alt="Bwindi" />
+            <div class="park-badge special">Special</div>
+            <button class="favorite-btn">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="park-content">
+            <div class="park-header">
+              <h3>Bwindi Impenetrable Forest</h3>
+              <div class="park-rating">
+                <i class="fas fa-star"></i>
+                <span>5.0</span>
+                <small>(987 reviews)</small>
+              </div>
+            </div>
+            <p class="park-location">
+              <i class="fas fa-map-marker-alt"></i> Uganda
+            </p>
+            <p class="park-description">
+              Home to nearly half of the world's mountain gorillas. An unforgettable once-in-a-lifetime experience.
+            </p>
+            <div class="park-features">
+              <span class="feature-tag"><i class="fas fa-paw"></i> Gorilla Trekking</span>
+              <span class="feature-tag"><i class="fas fa-leaf"></i> Rainforest</span>
+              <span class="feature-tag"><i class="fas fa-camera-retro"></i> Photography</span>
+            </div>
+            <div class="park-footer">
+              <div class="park-price">
+                <span class="from">from</span>
+                <h4>$600<small>/permit</small></h4>
+              </div>
+              <button class="btn-book">Book Now <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chobe National Park -->
+        <div class="park-card">
+          <div class="park-image">
+            <img src="./assets/chobe.jpg" alt="Chobe" />
+            <button class="favorite-btn">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="park-content">
+            <div class="park-header">
+              <h3>Chobe National Park</h3>
+              <div class="park-rating">
+                <i class="fas fa-star"></i>
+                <span>4.7</span>
+                <small>(1,543 reviews)</small>
+              </div>
+            </div>
+            <p class="park-location">
+              <i class="fas fa-map-marker-alt"></i> Botswana
+            </p>
+            <p class="park-description">
+              Famous for having one of the largest concentrations of elephants in Africa and stunning river safaris.
+            </p>
+            <div class="park-features">
+              <span class="feature-tag"><i class="fas fa-ship"></i> River Cruises</span>
+              <span class="feature-tag"><i class="fas fa-elephant"></i> Elephants</span>
+              <span class="feature-tag"><i class="fas fa-fish"></i> Fishing</span>
+            </div>
+            <div class="park-footer">
+              <div class="park-price">
+                <span class="from">from</span>
+                <h4>$95<small>/day</small></h4>
+              </div>
+              <button class="btn-book">Book Now <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etosha National Park -->
+        <div class="park-card">
+          <div class="park-image">
+            <img src="./assets/Etosha.jpg" alt="Etosha" />
+            <button class="favorite-btn">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="park-content">
+            <div class="park-header">
+              <h3>Etosha National Park</h3>
+              <div class="park-rating">
+                <i class="fas fa-star"></i>
+                <span>4.6</span>
+                <small>(1,234 reviews)</small>
+              </div>
+            </div>
+            <p class="park-location">
+              <i class="fas fa-map-marker-alt"></i> Namibia
+            </p>
+            <p class="park-description">
+              Unique salt pan ecosystem attracting diverse wildlife. Exceptional self-drive safari opportunities.
+            </p>
+            <div class="park-features">
+              <span class="feature-tag"><i class="fas fa-car"></i> Self-Drive</span>
+              <span class="feature-tag"><i class="fas fa-water"></i> Waterholes</span>
+              <span class="feature-tag"><i class="fas fa-moon"></i> Night Drives</span>
+            </div>
+            <div class="park-footer">
+              <div class="park-price">
+                <span class="from">from</span>
+                <h4>$110<small>/day</small></h4>
+              </div>
+              <button class="btn-book">Book Now <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+    <p>&copy; 2025 Adventurous Travel Express. All rights reserved.</p>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/parks.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="auth-page">
+  <!-- Language Selector -->
+  <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    <div class="language-selector" style="background: rgba(0,53,128,0.9); padding: 8px 12px; border-radius: 8px;">
+      <i class="fas fa-language" style="color: white; margin-right: 8px;"></i>
+      <select id="languageSelector" onchange="changeLanguage(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="es">ES</option>
+        <option value="sw">SW</option>
+      </select>
+    </div>
+  </div>
+  <a href="index.html" style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: #003580; background: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <i class="fas fa-arrow-left"></i> <span data-translate="home">Home</span>
+  </a>
+  <div class="auth-container">
+    <!-- Left Side - Image/Branding -->
+    <div class="auth-visual">
+      <div class="auth-image-container">
+        <img src="./assets/johanesburg2.jpeg" alt="Travel Destination" class="auth-hero-image" />
+      </div>
+    </div>
+    
+    <!-- Right Side - Form -->
+    <div class="auth-form-container">
+      <div class="auth-form-wrapper">
+        <div class="auth-header">
+          <h2>Create your account</h2>
+          <p>Sign up to start booking amazing travel experiences</p>
+        </div>
+
+        <!-- Social Signup -->
+        <div class="social-login">
+          <button class="social-btn google">
+            <i class="fab fa-google"></i>
+            <span>Sign up with Google</span>
+          </button>
+          <button class="social-btn facebook">
+            <i class="fab fa-facebook-f"></i>
+            <span>Sign up with Facebook</span>
+          </button>
+        </div>
+
+        <div class="divider">
+          <span>or sign up with email</span>
+        </div>
+
+        <!-- Alert Messages -->
+        <div id="alertMessage" class="alert-message" style="display: none;"></div>
+
+        <!-- Signup Form -->
+        <form id="signupForm" class="auth-form">
+          <div class="form-group">
+            <label for="name">
+              <i class="fas fa-user"></i> Full Name
+            </label>
+            <input 
+              type="text" 
+              id="name"
+              name="name" 
+              placeholder="Enter your full name" 
+              required 
+              autocomplete="name"
+              minlength="2"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">
+              <i class="fas fa-envelope"></i> Email Address
+            </label>
+            <input 
+              type="email" 
+              id="email"
+              name="email" 
+              placeholder="Enter your email" 
+              required 
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">
+              <i class="fas fa-lock"></i> Password
+            </label>
+            <div class="password-input">
+              <input 
+                type="password" 
+                id="password"
+                name="password" 
+                placeholder="Create a strong password" 
+                required 
+                minlength="8"
+                autocomplete="new-password"
+              />
+              <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="password-strength">
+              <div class="strength-bar">
+                <div class="strength-fill"></div>
+              </div>
+              <small class="strength-text">Password strength: <span>-</span></small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">
+              <i class="fas fa-lock"></i> Confirm Password
+            </label>
+            <div class="password-input">
+              <input 
+                type="password" 
+                id="confirmPassword"
+                name="confirmPassword" 
+                placeholder="Re-enter your password" 
+                required 
+                autocomplete="new-password"
+              />
+              <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-checkbox">
+            <label>
+              <input type="checkbox" name="terms" id="terms" required />
+              <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+          </div>
+
+          <div class="form-checkbox">
+            <label>
+              <input type="checkbox" name="newsletter" id="newsletter" />
+              <span>Send me travel deals, offers, and updates</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit" id="signupBtn">
+            <span class="btn-text">Create Account</span>
+            <span class="btn-loader" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i> Creating account...
+            </span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Already have an account? <a href="login.html">Sign in here</a></p>
+        </div>
+
+        <div class="auth-help">
+          <p><i class="fas fa-shield-alt"></i> Your information is protected with bank-level encryption</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/translations.js"></script>
+  <script>
+    const API_URL = 'http://localhost:5000/api';
+
+    // Toggle password visibility
+    function togglePassword(inputId) {
+      const passwordInput = document.getElementById(inputId);
+      const icon = event.target.closest('button').querySelector('i');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    // Show alert message
+    function showAlert(message, type = 'error') {
+      const alertDiv = document.getElementById('alertMessage');
+      alertDiv.textContent = message;
+      alertDiv.className = `alert-message alert-${type}`;
+      alertDiv.style.display = 'block';
+      
+      setTimeout(() => {
+        alertDiv.style.display = 'none';
+      }, 5000);
+    }
+
+    // Password strength indicator
+    const passwordInput = document.getElementById('password');
+    const strengthFill = document.querySelector('.strength-fill');
+    const strengthText = document.querySelector('.strength-text span');
+
+    passwordInput.addEventListener('input', function() {
+      const password = this.value;
+      let strength = 0;
+      
+      if (password.length >= 8) strength++;
+      if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+      if (password.match(/[0-9]/)) strength++;
+      if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+      const strengthWidth = (strength / 4) * 100;
+      strengthFill.style.width = strengthWidth + '%';
+
+      if (strength === 0) {
+        strengthFill.className = 'strength-fill';
+        strengthText.textContent = '-';
+      } else if (strength === 1) {
+        strengthFill.className = 'strength-fill weak';
+        strengthText.textContent = 'Weak';
+      } else if (strength === 2) {
+        strengthFill.className = 'strength-fill fair';
+        strengthText.textContent = 'Fair';
+      } else if (strength === 3) {
+        strengthFill.className = 'strength-fill good';
+        strengthText.textContent = 'Good';
+      } else {
+        strengthFill.className = 'strength-fill strong';
+        strengthText.textContent = 'Strong';
+      }
+    });
+
+    // Handle signup form submission
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const terms = document.getElementById('terms').checked;
+      
+      const signupBtn = document.getElementById('signupBtn');
+      const btnText = signupBtn.querySelector('.btn-text');
+      const btnLoader = signupBtn.querySelector('.btn-loader');
+
+      // Validate password match
+      if (password !== confirmPassword) {
+        showAlert('Passwords do not match!', 'error');
+        return;
+      }
+
+      // Validate terms acceptance
+      if (!terms) {
+        showAlert('Please accept the Terms of Service and Privacy Policy', 'error');
+        return;
+      }
+
+      try {
+        // Show loading state
+        signupBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline-block';
+        
+        const response = await fetch(`${API_URL}/auth/signup`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, password })
+        });
+        
+        const data = await response.json();
+        console.log('Signup response:', data);
+        
+        if (response.ok && data.success) {
+          // Store token and user data
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          
+          showAlert('Account created successfully! Redirecting to dashboard...', 'success');
+          
+          // Redirect to dashboard after signup
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000);
+        } else {
+          showAlert(data.message || 'Registration failed. Please try again.', 'error');
+          signupBtn.disabled = false;
+          btnText.style.display = 'inline-block';
+          btnLoader.style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Signup error:', error);
+        showAlert('An error occurred. Please try again later.', 'error');
+        signupBtn.disabled = false;
+        btnText.style.display = 'inline-block';
+        btnLoader.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

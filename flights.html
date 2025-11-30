@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flights - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/flights.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-content">
+        <div>
+          <div class="currency-selector">
+            <i class="fas fa-globe"></i>
+            <select id="currency">
+              <option>USD</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+          </div>
+          <div class="language-selector">
+            <i class="fas fa-language"></i>
+            <select id="languageSelector" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="sw">Kiswahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="top-header-right">
+          <a href="dashboard.html" class="top-link"><i class="fas fa-tachometer-alt"></i> <span data-translate="dashboard">Dashboard</span></a>
+          <a href="#" class="top-link"><i class="fas fa-question-circle"></i> <span data-translate="help">Help</span></a>
+          <a href="signup.html" class="btn-top-register" data-translate="register">Register</a>
+          <a href="login.html" class="btn-top-signin" data-translate="signin">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="./assets/adventurous_logo.png" alt="Logo" />
+          <span>Adventurous Travels</span>
+        </a>
+        
+        <div class="nav-tabs">
+          <a href="index.html" class="nav-tab">
+            <i class="fas fa-home"></i>
+            <span data-translate="home">Home</span>
+          </a>
+          <a href="hotels.html" class="nav-tab">
+            <i class="fas fa-bed"></i>
+            <span data-translate="stays">Stays</span>
+          </a>
+          <a href="flights.html" class="nav-tab active">
+            <i class="fas fa-plane"></i>
+            <span data-translate="flights">Flights</span>
+          </a>
+          <a href="taxis.html" class="nav-tab">
+            <i class="fas fa-car"></i>
+            <span data-translate="car_rentals">Car rentals</span>
+          </a>
+          <a href="parks.html" class="nav-tab">
+            <i class="fas fa-mountain"></i>
+            <span data-translate="attractions">Attractions</span>
+          </a>
+          <a href="tours.html" class="nav-tab">
+            <i class="fas fa-suitcase-rolling"></i>
+            <span data-translate="tour_packages">Tour Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Search -->
+  <section class="flights-hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Search flights.</h1>
+        
+        <!-- Trip Type Selector -->
+        <div class="trip-type-selector">
+          <label class="trip-type-option">
+            <input type="radio" name="trip-type" value="roundtrip" checked>
+            <span data-translate="round_trip">Round-trip</span>
+          </label>
+          <label class="trip-type-option">
+            <input type="radio" name="trip-type" value="oneway">
+            <span data-translate="one_way">One-way</span>
+          </label>
+        </div>
+
+        <!-- Enhanced Search Form -->
+        <form id="flight-search-form" class="flight-search-form-horizontal">
+        <div class="search-row">
+          <div class="search-field with-swap">
+            <label data-translate="from">From</label>
+            <input type="text" id="from" placeholder="Country, city or airport" value="Accra (ACC)" required>
+            <button type="button" class="swap-btn" onclick="swapLocations()">
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+          </div>
+
+          <div class="search-field">
+            <label data-translate="to">To</label>
+            <input type="text" id="to" placeholder="Country, city or airport" required>
+          </div>
+
+          <div class="search-field">
+            <label data-translate="departure">Depart</label>
+            <input type="date" id="departure-date" required>
+          </div>
+
+          <div class="search-field" id="return-date-group">
+            <label data-translate="return">Return</label>
+            <input type="date" id="return-date">
+          </div>
+
+          <div class="search-field">
+            <label data-translate="passengers">Travellers and cabin class</label>
+            <input type="text" id="travellers-display" value="1 Adult, Economy" readonly style="cursor: pointer;">
+          </div>
+
+          <button type="submit" class="btn-search-horizontal">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+
+        <!-- Additional Options -->
+        <div class="search-options">
+          <label class="checkbox-option">
+            <input type="checkbox" id="add-nearby-from">
+            <span>Add nearby airports</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" id="add-nearby-to">
+            <span>Add nearby airports</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" id="direct-flights">
+            <span>Direct flights</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" id="explore-hotels">
+            <span>Explore hotels</span>
+          </label>
+        </div>
+
+        <!-- Hidden inputs for passengers and class -->
+        <input type="hidden" id="passengers" value="1">
+        <input type="hidden" id="cabin-class" value="economy">
+      </form>
+      </div>
+      
+      <!-- Hero Images -->
+      <div class="hero-images">
+        <div class="hero-image-top">
+          <img src="./assets/EthipianAirline.jpeg" alt="Airplane wing over landscape">
+        </div>
+        <div class="hero-image-bottom">
+          <img src="./assets/adel_travel.jpg" alt="Traveler by window">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading Indicator -->
+  <div id="loading-indicator" class="loading-indicator" style="display: none;">
+    <div class="spinner"></div>
+    <p data-translate="loading">Searching for flights...</p>
+  </div>
+
+  <!-- Flight Results -->
+  <section class="flight-results-section">
+    <div class="container">
+      <div id="flight-results" class="flight-results">
+        <!-- Results will be displayed here -->
+        <div class="welcome-message">
+          <i class="fas fa-plane-departure"></i>
+          <h3>Ready to fly?</h3>
+          <p>Enter your travel details above to search for flights</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- Popular Airports -->
+  <section class="popular-airports">
+    <div class="container">
+      <h2>Popular Airports</h2>
+      <div class="airports-grid">
+        <div class="airport-card">
+          <img src="assets/accra_plan_airport.jpeg" alt="KIA">
+          <div class="airport-info">
+            <h4>Kutoka International Airport</h4>
+            <p>Republic of Ghana</p>
+          </div>
+        </div> 
+
+        <div class="airport-card">
+          <img src="assets/londonAirport.jpg" alt="Heathrow">
+          <div class="airport-info">
+            <h4>Heathrow (LHR)</h4>
+            <p>London, United Kingdom</p>
+          </div>
+        </div>
+
+        <div class="airport-card">
+          <img src="assets/newYork.jpeg" alt="JFK">
+          <div class="airport-info">
+            <h4>JFK International</h4>
+            <p>New York, USA</p>
+          </div>
+        </div>
+
+        <div class="airport-card">
+          <img src="assets/Changi_Airport.jpeg" alt="Changi">
+          <div class="airport-info">
+            <h4>Changi Airport</h4>
+            <p>Singapore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Adventurous Travel Express. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/flightSearchWidget.js"></script>
+  <script>
+    // Swap locations function
+    function swapLocations() {
+      const fromInput = document.getElementById('from');
+      const toInput = document.getElementById('to');
+      const temp = fromInput.value;
+      fromInput.value = toInput.value;
+      toInput.value = temp;
+    }
+
+    // Handle trip type change
+    document.querySelectorAll('input[name="trip-type"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const returnDateGroup = document.getElementById('return-date-group');
+        const returnDateInput = document.getElementById('return-date');
+        
+        if (e.target.value === 'oneway') {
+          returnDateGroup.style.display = 'none';
+          returnDateInput.removeAttribute('required');
+          returnDateInput.value = '';
+        } else {
+          returnDateGroup.style.display = 'flex';
+          returnDateInput.setAttribute('required', 'required');
+        }
+      });
+    });
+
+    // Quick search function for popular routes
+    function quickSearch(from, to) {
+      document.getElementById('from').value = from;
+      document.getElementById('to').value = to;
+      
+      // Set departure date to 30 days from now
+      const departureDate = new Date();
+      departureDate.setDate(departureDate.getDate() + 30);
+      document.getElementById('departure-date').value = departureDate.toISOString().split('T')[0];
+      
+      // Set return date to 37 days from now (7 days trip)
+      const returnDate = new Date();
+      returnDate.setDate(returnDate.getDate() + 37);
+      document.getElementById('return-date').value = returnDate.toISOString().split('T')[0];
+      
+      // Scroll to search form
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('departure-date').setAttribute('min', today);
+    document.getElementById('return-date').setAttribute('min', today);
+
+    // Update return date minimum when departure date changes
+    document.getElementById('departure-date').addEventListener('change', (e) => {
+      document.getElementById('return-date').setAttribute('min', e.target.value);
+    });
+  </script>
+</body>
+</html>

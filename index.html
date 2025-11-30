@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventurous Travel Express - Book Flights, Hotels, Tours & More</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="homepage">
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-content">
+        <div>
+          <div class="currency-selector">
+            <i class="fas fa-globe"></i>
+            <select id="currency">
+              <option>USD</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+          </div>
+          <div class="language-selector">
+            <i class="fas fa-language"></i>
+            <select id="languageSelector" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="sw">Kiswahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="top-header-right">
+          <a href="dashboard.html" class="top-link"><i class="fas fa-tachometer-alt"></i> <span data-translate="dashboard">Dashboard</span></a>
+          <a href="#" class="top-link"><i class="fas fa-question-circle"></i> <span data-translate="help">Help</span></a>
+          <a href="signup.html" class="btn-top-register" data-translate="register">Register</a>
+          <a href="login.html" class="btn-top-signin" data-translate="signin">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="./assets/adventurous_logo.png" alt="Logo" />
+          <span>Adventurous Travels</span>
+        </a>
+        
+        <div class="nav-tabs">
+          <a href="index.html" class="nav-tab active">
+            <i class="fas fa-home"></i>
+            <span data-translate="home">Home</span>
+          </a>
+          <a href="hotels.html" class="nav-tab">
+            <i class="fas fa-bed"></i>
+            <span data-translate="stays">Stays</span>
+          </a>
+          <a href="flights.html" class="nav-tab">
+            <i class="fas fa-plane"></i>
+            <span data-translate="flights">Flights</span>
+          </a>
+          <a href="taxis.html" class="nav-tab">
+            <i class="fas fa-car"></i>
+            <span data-translate="car_rentals">Car rentals</span>
+          </a>
+          <a href="parks.html" class="nav-tab">
+            <i class="fas fa-mountain"></i>
+            <span data-translate="attractions">Attractions</span>
+          </a>
+          <a href="tours.html" class="nav-tab">
+            <i class="fas fa-suitcase-rolling"></i>
+            <span data-translate="tour_packages">Tour Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Offers Section -->
+  <section class="offers-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-translate="offers">Offers</h2>
+        <p data-translate="offers_subtitle">Promotions, deals, and special offers for you</p>
+      </div>
+      
+      <div class="offers-grid">
+        <div class="offer-card offer-card-large">
+          <div class="offer-badge" data-translate="black_friday">Black Friday Deals</div>
+          <div class="offer-content">
+            <h3 data-translate="car_rental_deal">Get up to 25% off car rental</h3>
+            <p data-translate="car_rental_desc">Shift into saving with Black Friday Deals on rental cars</p>
+            <a href="taxis.html" class="btn-offer" data-translate="find_deals">Find deals</a>
+          </div>
+          <div class="offer-image">
+            <img src="./assets/car1.jpeg" alt="Car rental" />
+          </div>
+        </div>
+        
+        <div class="offer-card offer-card-large">
+          <div class="offer-badge" data-translate="black_friday">Black Friday Deals</div>
+          <div class="offer-content">
+            <h3 data-translate="attractions_deal">Up to 20% off attractions</h3>
+            <p data-translate="attractions_desc">Make exploring easy with savings on select experiences</p>
+            <a href="parks.html" class="btn-offer" data-translate="find_deals">Find deals</a>
+          </div>
+          <div class="offer-image">
+            <img src="./assets/adelKisoro.jpg" alt="Attractions" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Destinations -->
+  <section class="trending-section">
+    <div class="container">
+      <h2 class="section-title" data-translate="trending_destinations">Trending destinations</h2>
+      <p class="section-subtitle" data-translate="trending_subtitle">Most popular choices for travelers</p>
+      
+      <div class="trending-grid">
+        <a href="tours.html" class="destination-large">
+          <img src="./assets/johanesburg2.jpeg" alt="Johannesburg" />
+          <div class="destination-overlay">
+            <h3>Johannesburg <img src="https://flagcdn.com/w40/za.png" alt="South Africa flag" /></h3>
+          </div>
+        </a>
+        
+        <a href="tours.html" class="destination-large">
+          <img src="./assets/doubai.jpeg" alt="Dubai" />
+          <div class="destination-overlay">
+            <h3>Dubai <img src="https://flagcdn.com/w40/ae.png" alt="UAE flag" /></h3>
+          </div>
+        </a>
+        
+        <a href="tours.html" class="destination-medium">
+          <img src="./assets/paris.jpg" alt="Paris" />
+          <div class="destination-overlay">
+            <h3>Paris <img src="https://flagcdn.com/w40/fr.png" alt="France flag" /></h3>
+          </div>
+        </a>
+        
+        <a href="tours.html" class="destination-medium">
+          <img src="./assets/bali.jpeg" alt="Bali" />
+          <div class="destination-overlay">
+            <h3>Bali <img src="https://flagcdn.com/w40/id.png" alt="Indonesia flag" /></h3>
+          </div>
+        </a>
+        
+        <a href="tours.html" class="destination-medium">
+          <img src="./assets/memorial-park.png" alt="Accra" />
+          <div class="destination-overlay">
+            <h3>Accra <img src="https://flagcdn.com/w40/gh.png" alt="Ghana flag" /></h3>
+          </div>
+        </a>
+        <a href="tours.html" class="destination-medium">
+          <img src="./assets/mombassa.jpeg" alt="Mombasa" />
+          <div class="destination-overlay">
+            <h3>Mombasa <img src="https://flagcdn.com/w40/ke.png" alt="Kenya flag" /></h3>
+          </div>
+        </a>
+         <a href="tours.html" class="destination-medium">
+          <img src="./assets/goma.jpeg" alt="Goma" />
+          <div class="destination-overlay">
+            <h3>Goma <img src="https://flagcdn.com/w40/cd.png" alt="Congo flag" /></h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Unique Properties -->
+  <section class="properties-section">
+    <div class="container">
+      <h2 class="section-title" data-translate="unique_properties">Stay updated on unique choices</h2>
+      <p class="section-subtitle" data-translate="unique_subtitle">From all over the global</p>
+      
+      <div class="properties-carousel">
+        <div class="property-card">
+          <div class="property-image">
+            <img src="./assets/masisi2.jpeg" alt="Property" />
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="property-info">
+            <div class="property-badge" data-translate="nature">Nature</div>
+            <h3 data-translate="meditation">Get a quiet moment of Meditation</h3>
+            <p class="property-location">Masisi, DRCongo</p>
+            <div class="property-rating">
+              <span class="rating-badge">9.1</span>
+              <span class="rating-text" data-translate="wonderful">Wonderful</span>
+              <span class="rating-count">573 <span data-translate="reviews">reviews</span></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="./assets/PraiaCapeVerde.jpeg" alt="Property" />
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <div class="genius-badge"><i class="fas fa-star"></i> Genius</div>
+          </div>
+          <div class="property-info">
+            <div class="property-badge" data-translate="hotel">Hotel</div>
+            <h3>Pestana Tropico Ocean</h3>
+            <p class="property-location">Praia, Cape Verde</p>
+            <div class="property-rating">
+              <span class="rating-badge">8.3</span>
+              <span class="rating-text" data-translate="very_good">Very Good</span>
+              <span class="rating-count">1,603 <span data-translate="reviews">reviews</span></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="./assets/masaiMara.jpeg" alt="Safaris" />
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="property-info">
+            <div class="property-badge" data-translate="safaris">Safaris</div>
+            <h3 data-translate="safari_desc">Get life memori of the safaris in East Africa</h3>
+            <p class="property-location">Masai Mara, Kenya</p>
+            <div class="property-rating">
+              <span class="rating-badge">8.9</span>
+              <span class="rating-text" data-translate="excellent">Excellent</span>
+              <span class="rating-count">2,273 <span data-translate="reviews">reviews</span></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="./assets/volcanos.jpg" alt="Virunga National Park" />
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="property-info">
+            <div class="property-badge" data-translate="hiking">Hiking</div>
+            <h3 data-translate="hiking_desc">Get Amazing Hiking Experiences</h3>
+            <p class="property-location">DRCongo, Uganda, Rwanda</p>
+            <div class="property-rating">
+              <span class="rating-badge">9.0</span>
+              <span class="rating-text">Wonderful</span>
+              <span class="rating-count">939 reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trip Planner -->
+  <section class="trip-planner-section">
+    <div class="container">
+      <h2 class="section-title" data-translate="trip_planner">Quick and easy trip planner</h2>
+      <p class="section-subtitle" data-translate="trip_subtitle">Pick a vibe and explore the top destinations in Ghana</p>
+      
+      <div class="trip-destinations">
+        <div class="trip-card">
+          <img src="./assets/accra.jpeg" alt="Accra" />
+          <div class="trip-info">
+            <h3>Accra</h3>
+            <p>2 hours 30 minutes</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="./assets/Kumasi.jpg" alt="Kumasi" />
+          <div class="trip-info">
+            <h3>Kumasi</h3>
+            <p>3 hours 45 minutes</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="./assets/capeCost.jpeg" alt="Cape Coast" />
+          <div class="trip-info">
+            <h3>Cape Coast</h3>
+            <p>2 hours</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="./assets/tamale.jpg" alt="Tamale" />
+          <div class="trip-info">
+            <h3>Tamale</h3>
+            <p>1 hour 15 minutes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-translate="team_title">Meet Our Expert Travel Team</h2>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="./assets/AdelardProfil.JPG" alt="Team Member" />
+          </div>
+          <div class="team-info">
+            <h3>Adelard Borauzima</h3>
+            <p class="team-role" data-translate="chief_travel_officer">Chief Travel Officer</p>
+            <p class="team-bio" data-translate="years_experience">15+ years crafting unforgettable travel experiences across 80+ countries.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="./assets/zahara.jpg" alt="Team Member" />
+          </div>
+          <div class="team-info">
+            <h3>zahara</h3>
+            <p class="team-role" data-translate="safari_specialist">Safari & Wildlife Specialist</p>
+            <p class="team-bio" data-translate="safari_bio">Expert guide with deep knowledge of African wildlife and conservation.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="./assets/abdoul.jpg" alt="Team Member" />
+          </div>
+          <div class="team-info">
+            <h3>Abdoul Raouf</h3>
+            <p class="team-role" data-translate="cultural_director">Cultural Tours Director</p>
+            <p class="team-bio" data-translate="cultural_bio">Passionate about connecting travelers with authentic local experiences.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="./assets/alain.jpg" alt="Team Member" />
+          </div>
+          <div class="team-info">
+            <h3>Alain Nobel</h3>
+            <p class="team-role">Adventure Travel Specialist</p>
+            <p class="team-bio">Adrenaline junkie specializing in extreme sports and adventure tours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Manage your trips</a></li>
+            <li><a href="#">Contact Customer Service</a></li>
+            <li><a href="#">Safety resource center</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Discover</h4>
+          <ul>
+            <li><a href="#">Genius loyalty program</a></li>
+            <li><a href="#">Seasonal and holiday deals</a></li>
+            <li><a href="#">Travel articles</a></li>
+            <li><a href="#">Traveller Review Awards</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Terms and settings</h4>
+          <ul>
+            <li><a href="#">Privacy & cookies</a></li>
+            <li><a href="#">Terms and conditions</a></li>
+            <li><a href="#">Partner dispute</a></li>
+            <li><a href="#">How we work</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Partners</h4>
+          <ul>
+            <li><a href="#">Extranet login</a></li>
+            <li><a href="#">Partner help</a></li>
+            <li><a href="#">List your property</a></li>
+            <li><a href="#">Become an affiliate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-translate="rights_reserved">© 2025 Adventurous Travel Express. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/adventurous.js"></script>
+</body>
+</html>

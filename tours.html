@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tours & Experiences - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tours.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-content">
+        <div>
+          <div class="currency-selector">
+            <i class="fas fa-globe"></i>
+            <select id="currency">
+              <option>USD</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+          </div>
+          <div class="language-selector">
+            <i class="fas fa-language"></i>
+            <select id="languageSelector" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="sw">Kiswahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="top-header-right">
+          <a href="dashboard.html" class="top-link"><i class="fas fa-tachometer-alt"></i> <span data-translate="dashboard">Dashboard</span></a>
+          <a href="#" class="top-link"><i class="fas fa-question-circle"></i> <span data-translate="help">Help</span></a>
+          <a href="signup.html" class="btn-top-register" data-translate="register">Register</a>
+          <a href="login.html" class="btn-top-signin" data-translate="signin">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <img src="./assets/adventurousLogo.png" alt="Logo" />
+          <span>Adventurous Travels</span>
+        </a>
+        
+        <div class="nav-tabs">
+          <a href="index.html" class="nav-tab">
+            <i class="fas fa-home"></i>
+            <span data-translate="home">Home</span>
+          </a>
+          <a href="hotels.html" class="nav-tab">
+            <i class="fas fa-bed"></i>
+            <span data-translate="stays">Stays</span>
+          </a>
+          <a href="flights.html" class="nav-tab">
+            <i class="fas fa-plane"></i>
+            <span data-translate="flights">Flights</span>
+          </a>
+          <a href="taxis.html" class="nav-tab">
+            <i class="fas fa-car"></i>
+            <span data-translate="car_rentals">Car rentals</span>
+          </a>
+          <a href="parks.html" class="nav-tab">
+            <i class="fas fa-mountain"></i>
+            <span data-translate="attractions">Attractions</span>
+          </a>
+          <a href="tours.html" class="nav-tab active">
+            <i class="fas fa-suitcase-rolling"></i>
+            <span data-translate="tour_packages">Tour Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Tours Grid -->
+  <section class="tours-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular Tours & Experiences</h2>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+          <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+        </div>
+      </div>
+
+      <div class="tours-grid" id="toursGrid">
+        <!-- Tour Card 1 -->
+        <div class="tour-card">
+          <div class="tour-image">
+            <img src="./assets/serengetiSeven.jpg" alt="Safari Tour" />
+            <div class="tour-badge bestseller">Bestseller</div>
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="image-gallery-indicator">
+              <i class="fas fa-images"></i> 15
+            </div>
+          </div>
+          <div class="tour-content">
+            <div class="tour-category">
+              <span class="category-tag adventure">Adventure</span>
+              <span class="category-tag wildlife">Wildlife</span>
+            </div>
+            <h3>7-Day Serengeti Safari Adventure</h3>
+            <p class="tour-location">
+              <i class="fas fa-map-marker-alt"></i> Serengeti National Park, Tanzania
+            </p>
+            <p class="tour-description">
+              Experience the ultimate African safari with game drives, luxury camping, and witness the great migration.
+            </p>
+            <div class="tour-highlights">
+              <span><i class="fas fa-check-circle"></i> Big Five sightings</span>
+              <span><i class="fas fa-check-circle"></i> Luxury tented camps</span>
+              <span><i class="fas fa-check-circle"></i> Expert guides</span>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-duration">
+                <i class="fas fa-clock"></i> 7 Days
+              </div>
+              <div class="tour-rating">
+                <i class="fas fa-star"></i> 4.9 (324 reviews)
+              </div>
+            </div>
+            <div class="tour-footer">
+              <div class="tour-price">
+                <span class="from">from</span>
+                <h4>$2,499<small>/person</small></h4>
+              </div>
+              <button class="btn-book-tour">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 2 -->
+        <div class="tour-card">
+          <div class="tour-image">
+            <img src="./assets/egyptHistory.jpg" alt="Pyramids Tour" />
+            <div class="tour-badge popular">Popular</div>
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="image-gallery-indicator">
+              <i class="fas fa-images"></i> 22
+            </div>
+          </div>
+          <div class="tour-content">
+            <div class="tour-category">
+              <span class="category-tag historical">Historical</span>
+              <span class="category-tag cultural">Cultural</span>
+            </div>
+            <h3>Ancient Egypt Discovery Tour</h3>
+            <p class="tour-location">
+              <i class="fas fa-map-marker-alt"></i> Cairo & Giza, Egypt
+            </p>
+            <p class="tour-description">
+              Explore the pyramids, Sphinx, Egyptian Museum, and cruise the Nile on this comprehensive tour.
+            </p>
+            <div class="tour-highlights">
+              <span><i class="fas fa-check-circle"></i> Pyramids of Giza</span>
+              <span><i class="fas fa-check-circle"></i> Nile River cruise</span>
+              <span><i class="fas fa-check-circle"></i> Egyptian Museum</span>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-duration">
+                <i class="fas fa-clock"></i> 5 Days
+              </div>
+              <div class="tour-rating">
+                <i class="fas fa-star"></i> 4.8 (567 reviews)
+              </div>
+            </div>
+            <div class="tour-footer">
+              <div class="tour-price">
+                <span class="from">from</span>
+                <h4>$1,899<small>/person</small></h4>
+              </div>
+              <button class="btn-book-tour">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 3 -->
+        <div class="tour-card">
+          <div class="tour-image">
+            <img src="./assets/mombassa.jpeg" alt="Beach Tour" />
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="image-gallery-indicator">
+              <i class="fas fa-images"></i> 18
+            </div>
+          </div>
+          <div class="tour-content">
+            <div class="tour-category">
+              <span class="category-tag beach">Beach</span>
+              <span class="category-tag adventure">Adventure</span>
+            </div>
+            <h3>Coastal Paradise Getaway</h3>
+            <p class="tour-location">
+              <i class="fas fa-map-marker-alt"></i> Mombasa, Kenya
+            </p>
+            <p class="tour-description">
+              Relax on pristine beaches, snorkel in crystal-clear waters, and explore historic coastal towns.
+            </p>
+            <div class="tour-highlights">
+              <span><i class="fas fa-check-circle"></i> Beach activities</span>
+              <span><i class="fas fa-check-circle"></i> Snorkeling trips</span>
+              <span><i class="fas fa-check-circle"></i> Old Town tour</span>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-duration">
+                <i class="fas fa-clock"></i> 4 Days
+              </div>
+              <div class="tour-rating">
+                <i class="fas fa-star"></i> 4.7 (189 reviews)
+              </div>
+            </div>
+            <div class="tour-footer">
+              <div class="tour-price">
+                <span class="from">from</span>
+                <h4>$799<small>/person</small></h4>
+              </div>
+              <button class="btn-book-tour">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 4 -->
+        <div class="tour-card">
+          <div class="tour-image">
+            <img src="./assets/johanesburg.jpg" alt="City Tour" />
+            <div class="tour-badge new">New</div>
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="image-gallery-indicator">
+              <i class="fas fa-images"></i> 12
+            </div>
+          </div>
+          <div class="tour-content">
+            <div class="tour-category">
+              <span class="category-tag cultural">Cultural</span>
+              <span class="category-tag historical">Historical</span>
+            </div>
+            <h3>Cape Town & Winelands Experience</h3>
+            <p class="tour-location">
+              <i class="fas fa-map-marker-alt"></i> Cape Town, South Africa
+            </p>
+            <p class="tour-description">
+              Discover Table Mountain, visit wine estates, explore Robben Island, and enjoy world-class cuisine.
+            </p>
+            <div class="tour-highlights">
+              <span><i class="fas fa-check-circle"></i> Table Mountain</span>
+              <span><i class="fas fa-check-circle"></i> Wine tasting</span>
+              <span><i class="fas fa-check-circle"></i> Robben Island</span>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-duration">
+                <i class="fas fa-clock"></i> 6 Days
+              </div>
+              <div class="tour-rating">
+                <i class="fas fa-star"></i> 4.9 (412 reviews)
+              </div>
+            </div>
+            <div class="tour-footer">
+              <div class="tour-price">
+                <span class="from">from</span>
+                <h4>$1,599<small>/person</small></h4>
+              </div>
+              <button class="btn-book-tour">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 5 -->
+        <div class="tour-card">
+          <div class="tour-image">
+            <img src="./assets/gorilla.jpeg" alt="Gorilla Trek" />
+            <div class="tour-badge exclusive">Exclusive</div>
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="image-gallery-indicator">
+              <i class="fas fa-images"></i> 20
+            </div>
+          </div>
+          <div class="tour-content">
+            <div class="tour-category">
+              <span class="category-tag wildlife">Wildlife</span>
+              <span class="category-tag adventure">Adventure</span>
+            </div>
+            <h3>Mountain Gorilla Trekking Experience</h3>
+            <p class="tour-location">
+              <i class="fas fa-map-marker-alt"></i> Bwindi Forest, Uganda
+            </p>
+            <p class="tour-description">
+              Once-in-a-lifetime opportunity to trek through rainforest and observe endangered mountain gorillas.
+            </p>
+            <div class="tour-highlights">
+              <span><i class="fas fa-check-circle"></i> Gorilla permits included</span>
+              <span><i class="fas fa-check-circle"></i> Expert trackers</span>
+              <span><i class="fas fa-check-circle"></i> Luxury lodge</span>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-duration">
+                <i class="fas fa-clock"></i> 3 Days
+              </div>
+              <div class="tour-rating">
+                <i class="fas fa-star"></i> 5.0 (156 reviews)
+              </div>
+            </div>
+            <div class="tour-footer">
+              <div class="tour-price">
+                <span class="from">from</span>
+                <h4>$3,200<small>/person</small></h4>
+              </div>
+              <button class="btn-book-tour">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour Card 6 -->
+        <div class="tour-card">
+          <div class="tour-image">
+            <img src="./assets/sahara.jpg" alt="Desert Tour" />
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="image-gallery-indicator">
+              <i class="fas fa-images"></i> 14
+            </div>
+          </div>
+          <div class="tour-content">
+            <div class="tour-category">
+              <span class="category-tag adventure">Adventure</span>
+              <span class="category-tag cultural">Cultural</span>
+            </div>
+            <h3>Sahara Desert Adventure</h3>
+            <p class="tour-location">
+              <i class="fas fa-map-marker-alt"></i> Merzouga, Morocco
+            </p>
+            <p class="tour-description">
+              Camel trek through golden dunes, sleep under stars in desert camps, and experience Berber culture.
+            </p>
+            <div class="tour-highlights">
+              <span><i class="fas fa-check-circle"></i> Camel trekking</span>
+              <span><i class="fas fa-check-circle"></i> Desert camping</span>
+              <span><i class="fas fa-check-circle"></i> Berber villages</span>
+            </div>
+            <div class="tour-meta">
+              <div class="tour-duration">
+                <i class="fas fa-clock"></i> 3 Days
+              </div>
+              <div class="tour-rating">
+                <i class="fas fa-star"></i> 4.8 (298 reviews)
+              </div>
+            </div>
+            <div class="tour-footer">
+              <div class="tour-price">
+                <span class="from">from</span>
+                <h4>$599<small>/person</small></h4>
+              </div>
+              <button class="btn-book-tour">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose-section">
+    <div class="container">
+      <h2>Why Book Tours With Us?</h2>
+      <div class="why-choose-grid">
+        <div class="why-choose-card">
+          <div class="why-icon">
+            <i class="fas fa-check-double"></i>
+          </div>
+          <h3>Best Price Guarantee</h3>
+          <p>We match any competitor's price and offer exclusive deals you won't find elsewhere</p>
+        </div>
+
+        <div class="why-choose-card">
+          <div class="why-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Expert Local Guides</h3>
+          <p>All tours led by certified, knowledgeable guides who bring destinations to life</p>
+        </div>
+
+        <div class="why-choose-card">
+          <div class="why-icon">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <h3>Verified Reviews</h3>
+          <p>Real feedback from thousands of travelers who have experienced our tours</p>
+        </div>
+
+        <div class="why-choose-card">
+          <div class="why-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Safe & Secure</h3>
+          <p>Your safety is our priority with comprehensive insurance and 24/7 support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Adventurous Travel Express. All rights reserved.</p>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/tours.js"></script>
+</body>
+</html>

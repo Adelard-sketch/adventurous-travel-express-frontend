@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Adventurous Travel Express</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Clean Top Header -->
+  <header class="dashboard-topbar">
+    <div class="container">
+      <div class="topbar-content">
+        <div class="brand">
+          <span class="brand-text" data-translate="dashboard">Dashboard</span>
+        </div>
+        
+        <div class="user-section">
+          <div class="language-selector" style="margin-right: 15px;">
+            <i class="fas fa-language"></i>
+            <select id="languageSelector" onchange="changeLanguage(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+              <option value="en">EN</option>
+              <option value="fr">FR</option>
+              <option value="es">ES</option>
+              <option value="sw">SW</option>
+            </select>
+          </div>
+          <a href="admin.html" id="adminLink" style="display: none; margin-right: 15px; color: white; text-decoration: none; padding: 8px 16px; background: rgba(255,255,255,0.2); border-radius: 6px; font-weight: 600;">
+            <i class="fas fa-user-shield"></i> Admin
+          </a>
+          <div class="user-info">
+            <i class="fas fa-envelope notification-icon"></i>
+            <span class="user-greeting">Hi, <strong id="userName">Traveler</strong></span>
+          </div>
+          <button onclick="logout()" class="logout-btn" title="Logout" data-translate="logout">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard-main">
+    <div class="container">
+      
+      <!-- Stats Overview -->
+      <div class="stats-section">
+        <div class="stat-box">
+          <div class="stat-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-details">
+            <h3>0</h3>
+            <p data-translate="total_bookings">Total Bookings</p>
+          </div>
+        </div>
+        
+        <div class="stat-box">
+          <div class="stat-icon">
+            <i class="fas fa-plane-departure"></i>
+          </div>
+          <div class="stat-details">
+            <h3>0</h3>
+            <p data-translate="upcoming_trips">Upcoming Trips</p>
+          </div>
+        </div>
+        
+        <div class="stat-box">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-details">
+            <h3>$0</h3>
+            <p data-translate="total_spent">Total Spent</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions-section">
+        <h2 class="section-title" data-translate="quick_actions">Quick Actions</h2>
+        <div class="actions-grid">
+          <a href="flights.html" class="action-card">
+            <i class="fas fa-plane"></i>
+            <span data-translate="book_flight">Book Flight</span>
+          </a>
+          <a href="hotels.html" class="action-card">
+            <i class="fas fa-hotel"></i>
+            <span data-translate="find_hotels">Find Hotels</span>
+          </a>
+          <a href="taxis.html" class="action-card">
+            <i class="fas fa-car"></i>
+            <span data-translate="rent_car">Rent a Car</span>
+          </a>
+          <a href="tours.html" class="action-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <span data-translate="browse_tours">Browse Tours</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- My Bookings -->
+      <div class="bookings-section">
+        <div class="section-header">
+          <h2 class="section-title" data-translate="my_bookings">My Bookings</h2>
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all" data-translate="all">All</button>
+            <button class="filter-tab" data-filter="confirmed" data-translate="confirmed">Confirmed</button>
+            <button class="filter-tab" data-filter="upcoming" data-translate="upcoming">Upcoming</button>
+            <button class="filter-tab" data-filter="pending">Pending</button>
+          </div>
+        </div>
+
+        <div id="allBookingsContainer">
+          <div class="loading-state">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading bookings...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="activity-section">
+        <h2 class="section-title">Recent Activity</h2>
+        <div id="activityContainer" class="activity-timeline">
+          <!-- Activities will be loaded dynamically -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="payment-modal" style="display: none;">
+    <div class="payment-modal-content">
+      <div class="payment-modal-header">
+        <h2><i class="fas fa-credit-card"></i> Complete Payment</h2>
+        <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+      </div>
+
+      <div class="payment-modal-body">
+        <!-- Booking Summary -->
+        <div class="payment-booking-summary">
+          <h3>Booking Summary</h3>
+          <div id="paymentBookingSummary">
+            <!-- Will be populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods-section">
+          <h3>Select Payment Method</h3>
+          <div class="payment-method-tabs">
+            <button class="payment-method-tab active" data-method="card">
+              <i class="fas fa-credit-card"></i>
+              <span>Card</span>
+            </button>
+            <button class="payment-method-tab" data-method="paypal">
+              <i class="fab fa-paypal"></i>
+              <span>PayPal</span>
+            </button>
+            <button class="payment-method-tab" data-method="mobile">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Mobile Money</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Payment Forms -->
+        <form id="paymentForm" class="payment-form">
+          <!-- Card Payment Form -->
+          <div id="cardPaymentForm" class="payment-method-form active">
+            <div class="form-group">
+              <label>Card Number</label>
+              <div class="card-input-wrapper">
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required />
+                <i class="fas fa-credit-card card-icon"></i>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required />
+              </div>
+              <div class="form-group">
+                <label>CVV</label>
+                <input type="text" id="cardCVV" placeholder="123" maxlength="4" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Cardholder Name</label>
+              <input type="text" id="cardName" value="Adelard Borauzima" required />
+            </div>
+          </div>
+
+          <!-- PayPal Form -->
+          <div id="paypalPaymentForm" class="payment-method-form">
+            <div class="paypal-info">
+              <i class="fab fa-paypal" style="font-size: 48px; color: #0070ba;"></i>
+              <p>You will be redirected to PayPal to complete your payment</p>
+            </div>
+          </div>
+
+          <!-- Mobile Money Form -->
+          <div id="mobilePaymentForm" class="payment-method-form">
+            <div class="form-group">
+              <label>Mobile Money Provider</label>
+              <select id="mobileProvider" required>
+                <option value="">Select Provider</option>
+                <option value="mpesa">M-Pesa</option>
+                <option value="mtn">MTN Mobile Money</option>
+                <option value="airtel">Airtel Money</option>
+                <option value="orange">Orange Money</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="mobileNumber" placeholder="+1234567890" required />
+            </div>
+          </div>
+
+          <div class="payment-total">
+            <span>Total Amount:</span>
+            <span id="paymentAmount" class="amount">$0.00</span>
+          </div>
+
+          <button type="submit" class="btn-pay-submit">
+            <i class="fas fa-lock"></i>
+            Pay Securely
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="success-modal" style="display: none;">
+    <div class="success-modal-content">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>Payment Successful!</h2>
+      <p>Your booking has been confirmed and payment processed.</p>
+      <button onclick="closeSuccessModal()" class="btn-success-close">Close</button>
+    </div>
+  </div>
+
+  <script src="js/translations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/adventurous.js"></script>
+</body>
+</html>
