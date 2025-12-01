@@ -332,9 +332,7 @@ h2 {
   cursor: pointer;
 }
 
-/* ============================
-   OFFERS SECTION
-=============================== */
+/* offer section */
 .offers-section {
   padding: 30px 0;
   background: white;
@@ -380,13 +378,13 @@ h2 {
 
 .offer-badge {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 12px;
+  left: 12px;
   background: #008009;
   color: white;
   padding: 6px 12px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   z-index: 2;
@@ -438,9 +436,7 @@ h2 {
   object-fit: cover;
 }
 
-/* ============================
-   TRENDING DESTINATIONS
-=============================== */
+/* tredding destination */
 .trending-section {
   padding: 60px 0;
   background: white;
@@ -529,9 +525,7 @@ h2 {
   border-radius: 2px;
 }
 
-/* ============================
-   PROPERTIES SECTION
-=============================== */
+/* PROPERTIES SECTION */
 .properties-section {
   padding: 60px 0;
   background: #f5f5f5;
@@ -668,9 +662,8 @@ h2 {
   color: #6b6b6b;
 }
 
-/* ============================
-   TRIP PLANNER SECTION
-=============================== */
+/* TRIP PLANNER SECTION
+ */
 .trip-planner-section {
   padding: 60px 0;
   background: white;
@@ -751,9 +744,8 @@ h2 {
   color: #6b6b6b;
 }
 
-/* ============================
-   TEAM SECTION
-=============================== */
+/* TEAM SECTION
+ */
 .team-section {
   padding: 40px 0;
   background: #f7f9fc;
@@ -876,9 +868,8 @@ h2 {
   line-height: 1.5;
 }
 
-/* ============================
-   MAIN FOOTER
-=============================== */
+/* MAIN FOOTER
+ */
 .main-footer {
   background: #f5f5f5;
   padding: 48px 0 24px;
@@ -928,9 +919,8 @@ h2 {
   font-size: 14px;
 }
 
-/* ============================
-   RESPONSIVE DESIGN (Homepage)
-=============================== */
+/* RESPONSIVE DESIGN (Homepage)
+ */
 @media (max-width: 1024px) {
   .trending-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1010,9 +1000,8 @@ h2 {
   }
 }
 
-/* ============================
-   NAVBAR (Old styles for other pages)
-=============================== */
+/* NAVBAR (Old styles for other pages)
+ */
 .navbar {
   background: #9ecae1;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -1090,9 +1079,8 @@ h2 {
   background: #e06c00;
 }
 
-/* ============================
-   HERO SECTION
-=============================== */
+/* HERO SECTION
+ */
 .hero {
   position: relative;
   height: 85vh;
@@ -1156,9 +1144,8 @@ h2 {
   background: #e06c00;
 }
 
-/* ============================
-   POPULAR DESTINATIONS
-=============================== */
+/* POPULAR DESTINATIONS
+ */
 .featured {
   padding: 60px 0;
 }
@@ -1200,9 +1187,8 @@ h2 {
   color: #666;
 }
 
-/* ============================
-   PACKAGES
-=============================== */
+/* PACKAGES
+ */
 .packages {
   padding: 60px 0;
 }
@@ -1258,9 +1244,8 @@ h2 {
   text-decoration: line-through;
 }
 
-/* ============================
-   TEAM SECTION
-=============================== */
+/* TEAM SECTION
+ */
 .team {
   padding: 60px 0;
 }
@@ -1298,9 +1283,8 @@ h2 {
   padding: 0 15px;
 }
 
-/* ============================
-   FOOTER
-=============================== */
+/* FOOTER
+ */
 footer {
   background: white;
   padding: 30px 20px;
@@ -1310,9 +1294,8 @@ footer {
   border-top: 1px solid #e0e0e0;
 }
 
-/* ============================
-   AUTHENTICATION PAGES
-=============================== */
+/* AUTHENTICATION PAGES
+ */
 .auth-page {
   margin: 0;
   padding: 0;
@@ -1969,10 +1952,8 @@ footer {
   }
 }
 
-/* ============================
-   SERVICE PAGES STYLES
-   (Flights, Taxis, Tours, Parks)
-=============================== */
+/* (Flights, Taxis, Tours, Parks)
+ */
 
 /* Page Hero Sections */
 .page-hero {
@@ -2018,9 +1999,8 @@ footer {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* ============================
-   FLIGHTS PAGE STYLES (Updated Design)
-=============================== */
+/* FLIGHTS PAGE STYLES (Updated Design)
+ */
 
 /* Flights Hero Section */
 .flights-hero {
@@ -3060,9 +3040,8 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 53, 128, 0.4);
 }
 
-/* ============================
-   TOURS PAGE STYLES
-=============================== */
+/* TOURS PAGE STYLES
+ */
 
 .filter-bar {
   background: white;
@@ -3375,9 +3354,8 @@ footer {
   box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
 }
 
-/* ============================
-   PARKS & ATTRACTIONS PAGE STYLES
-=============================== */
+/* PARKS & ATTRACTIONS PAGE STYLES
+ */
 
 .parks-section {
   padding: 40px 20px;
@@ -3585,9 +3563,8 @@ footer {
   box-shadow: 0 4px 12px rgba(17, 153, 142, 0.4);
 }
 
-/* ============================
-   RESPONSIVE DESIGN FOR SERVICE PAGES
-=============================== */
+/* RESPONSIVE DESIGN FOR SERVICE PAGES
+ */
 
 @media (max-width: 1024px) {
   .booking-layout {
@@ -3748,9 +3725,8 @@ footer {
   }
 }
 
-/* ============================
-   DASHBOARD BOOKINGS STYLES
-=============================== */
+/* DASHBOARD BOOKINGS STYLES
+ */
 
 /* Booking Category Section */
 .booking-category-section {

@@ -1,6 +1,4 @@
-/* ============================================
-   TAXIS PAGE STYLES
-   ============================================ */
+/* TAXIS PAGE STYLES */
 
 * {
   margin: 0;
@@ -22,9 +20,7 @@ body {
   padding: 0 20px;
 }
 
-/* ============================================
-   TOP HEADER
-   ============================================ */
+/* TOP HEADER */
 .top-header {
   background: #003580;
   color: white;
@@ -96,9 +92,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* ============================================
-   MAIN NAVIGATION
-   ============================================ */
+/* MAIN NAVIGATION */
 .main-nav {
   background: #003580;
   padding: 0;
@@ -161,9 +155,7 @@ body {
   font-size: 18px;
 }
 
-/* ============================================
-   NAVBAR (Old styles for other pages)
-   ============================================ */
+/* NAVBAR (Old styles for other pages) */
 .navbar {
   background: #9ecae1;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -243,9 +235,7 @@ body {
   background: #2771a3;
 }
 
-/* ============================================
-   TAXI BOOKING SECTION
-   ============================================ */
+/* TAXI BOOKING SECTION */
 
 .taxi-booking-section {
   padding: 50px 20px 80px;
@@ -1179,9 +1169,7 @@ body {
   }
 }
 
-/* ============================================
-   ROUTE INFO CARD
-   ============================================ */
+/* ROUTE INFO CARD */
 .vehicles-subtitle {
   color: #666;
   margin-bottom: 24px;
@@ -1223,9 +1211,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* ============================================
-   BOOKING MODAL
-   ============================================ */
+/* BOOKING MODAL */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1360,9 +1346,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 53, 128, 0.3);
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+/* FOOTER */
 footer {
   background: white;
   color: #333;

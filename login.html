@@ -41,11 +41,11 @@
 
         <!-- Social Login -->
         <div class="social-login">
-          <button class="social-btn google">
+          <button type="button" class="social-btn google" onclick="loginWithGoogle()">
             <i class="fab fa-google"></i>
             <span>Continue with Google</span>
           </button>
-          <button class="social-btn facebook">
+          <button type="button" class="social-btn facebook" onclick="loginWithFacebook()">
             <i class="fab fa-facebook-f"></i>
             <span>Continue with Facebook</span>
           </button>
@@ -121,8 +121,96 @@
   </div>
 
   <script src="js/translations.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://connect.facebook.net/en_US/sdk.js" async defer></script>
   <script>
     const API_URL = 'http://localhost:5000/api';
+
+    // Initialize Facebook SDK
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1234567890', // Replace with your Facebook App ID
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v18.0'
+      });
+    };
+
+    // Google Login
+    function loginWithGoogle() {
+      showAlert('Opening Google Sign In...', 'info');
+      
+      // For demo purposes, simulate Google login
+      setTimeout(() => {
+        const demoGoogleUser = {
+          email: 'user@gmail.com',
+          name: 'Google User',
+          provider: 'google'
+        };
+        // In production, use real OAuth token from Google
+        attemptSocialLogin(demoGoogleUser);
+      }, 1000);
+    }
+
+    // Facebook Login
+    function loginWithFacebook() {
+      showAlert('Opening Facebook Sign In...', 'info');
+      
+      FB.login(function(response) {
+        if (response.authResponse) {
+          FB.api('/me', { fields: 'id,name,email' }, function(userInfo) {
+            const facebookUser = {
+              email: userInfo.email || `fb_${userInfo.id}@facebook.com`,
+              name: userInfo.name,
+              provider: 'facebook',
+              facebookId: userInfo.id
+            };
+            attemptSocialLogin(facebookUser);
+          });
+        } else {
+          showAlert('Facebook login cancelled', 'error');
+        }
+      }, { scope: 'public_profile,email' });
+    }
+
+    // Attempt social login
+    async function attemptSocialLogin(userData) {
+      try {
+        // Try to login with social account
+        const response = await fetch(`${API_URL}/auth/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: userData.email,
+            password: 'social_auth_' + userData.provider // Dummy password for social accounts
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          
+          showAlert(`Welcome back ${userData.name}!`, 'success');
+          
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000);
+        } else {
+          // Account doesn't exist, redirect to signup
+          showAlert('No account found. Redirecting to sign up...', 'info');
+          setTimeout(() => {
+            window.location.href = 'signup.html';
+          }, 2000);
+        }
+      } catch (error) {
+        console.error('Social login error:', error);
+        showAlert('An error occurred. Please try again.', 'error');
+      }
+    }
 
     // Toggle password visibility
     function togglePassword(inputId) {

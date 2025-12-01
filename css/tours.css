@@ -1,6 +1,4 @@
-/* ============================================
-   TOURS PAGE - BEAUTIFUL & STRUCTURED
-   ============================================ */
+/* TOURS PAGE - BEAUTIFUL & STRUCTURED */
 
 * {
   margin: 0;
@@ -21,9 +19,7 @@ body {
   padding: 0 20px;
 }
 
-/* ============================================
-   FILTER BAR
-   ============================================ */
+/* FILTER BAR */
 .filter-bar {
   padding: 30px 0;
   background: white;
@@ -113,9 +109,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* ============================================
-   TOURS SECTION
-   ============================================ */
+/* TOURS SECTION */
 .tours-section {
   padding: 60px 0 100px;
   background: #f7f9fc;
@@ -169,18 +163,14 @@ body {
   color: white;
 }
 
-/* ============================================
-   TOURS GRID
-   ============================================ */
+/* TOURS GRID */
 .tours-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 30px;
 }
 
-/* ============================================
-   TOUR CARD
-   ============================================ */
+/* TOUR CARD */
 .tour-card {
   background: white;
   border-radius: 16px;
@@ -303,9 +293,7 @@ body {
   z-index: 2;
 }
 
-/* ============================================
-   TOUR CONTENT
-   ============================================ */
+/* TOUR CONTENT */
 .tour-content {
   padding: 24px;
   flex: 1;
@@ -507,9 +495,7 @@ body {
   transform: translateY(0);
 }
 
-/* ============================================
-   WHY CHOOSE US SECTION
-   ============================================ */
+/* WHY CHOOSE US SECTION */
 .why-choose-section {
   padding: 80px 0;
   background: white;
@@ -572,9 +558,7 @@ body {
   line-height: 1.6;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+/* FOOTER */
 footer {
   background: white;
   padding: 30px 20px;
@@ -588,9 +572,7 @@ footer p {
   font-size: 0.95rem;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+/* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
   .tours-grid {
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));

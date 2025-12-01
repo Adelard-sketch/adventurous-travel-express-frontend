@@ -1,6 +1,4 @@
-/* ============================================
-   CLEAN DASHBOARD STYLES
-   ============================================ */
+/* CLEAN DASHBOARD STYLES */
 
 * {
   margin: 0;
@@ -21,9 +19,7 @@ body {
   padding: 0 20px;
 }
 
-/* ============================================
-   TOP HEADER - CLEAN & MINIMAL
-   ============================================ */
+/* TOP HEADER - CLEAN & MINIMAL */
 .dashboard-topbar {
   background:  #00224d;
   padding: 20px 0;
@@ -106,9 +102,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ============================================
-   MAIN DASHBOARD
-   ============================================ */
+/* MAIN DASHBOARD */
 .dashboard-main {
   padding: 40px 0 80px;
 }

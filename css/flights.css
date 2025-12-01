@@ -1,6 +1,5 @@
-/* ============================================
-   FLIGHTS PAGE STYLES - CLEAN VERSION
-   ============================================ */
+/* FLIGHTS PAGE STYLES - CLEAN VERSION
+ */
 
 * {
   margin: 0;
@@ -21,9 +20,8 @@ body {
   padding: 0 20px;
 }
 
-/* ============================================
-   TOP HEADER
-   ============================================ */
+/* TOP HEADER
+ */
 .top-header {
   background: #003580;
   color: white;
@@ -95,9 +93,8 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* ============================================
-   MAIN NAVIGATION
-   ============================================ */
+/* MAIN NAVIGATION
+ */
 .main-nav {
   background: #003580;
   padding: 0;
@@ -182,10 +179,10 @@ body {
 }
 
 .flights-hero h1 {
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   line-height: 1.1;
   letter-spacing: -0.5px;
 }
@@ -227,10 +224,10 @@ body {
 .trip-type-selector {
   display: flex;
   gap: 0;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   background: #fff;
-  border-radius: 8px;
-  padding: 4px;
+  border-radius: 6px;
+  padding: 3px;
   width: fit-content;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
@@ -246,13 +243,13 @@ body {
 
 .trip-type-option span {
   display: block;
-  padding: 10px 24px;
+  padding: 6px 16px;
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #6b7280;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
@@ -289,10 +286,10 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 12px 16px;
+  padding: 8px 12px;
   border-right: 1px solid #e5e7eb;
   position: relative;
-  min-height: 60px;
+  min-height: 48px;
   justify-content: center;
   background: #fff;
   transition: all 0.2s ease;
@@ -314,9 +311,9 @@ body {
 }
 
 .search-field label {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   color: #6b7280;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   font-weight: 600;
   text-transform: capitalize;
 }
@@ -324,7 +321,7 @@ body {
 .search-field input {
   border: none;
   outline: none;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: #111827;
   font-weight: 500;
   background: transparent;
@@ -348,11 +345,11 @@ body {
 
 .swap-btn {
   position: absolute;
-  right: -20px;
+  right: -16px;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #fff;
   color: #6b7280;
@@ -363,7 +360,7 @@ body {
   justify-content: center;
   z-index: 10;
   transition: all 0.2s ease;
-  font-size: 1rem;
+  font-size: 0.85rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -378,8 +375,8 @@ body {
   background: #0071c2;
   color: #fff;
   border: none;
-  padding: 0 32px;
-  font-size: 0.95rem;
+  padding: 0 24px;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -387,8 +384,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 60px;
+  gap: 6px;
+  min-height: 48px;
   border-radius: 0 12px 12px 0;
 }
 
@@ -519,9 +516,8 @@ body {
   color: #64748b;
 }
 
-/* ============================================
-   POPULAR ROUTES
-   ============================================ */
+/* POPULAR ROUTES
+ */
 .popular-routes {
   padding: 80px 0;
   background: #fff;
@@ -605,9 +601,8 @@ body {
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* ============================================
-   POPULAR AIRPORTS
-   ============================================ */
+/* POPULAR AIRPORTS
+ */
 .popular-airports {
   padding: 80px 0;
   background: #f8fafc;
@@ -665,9 +660,8 @@ body {
   font-size: 0.875rem;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+/* FOOTER
+ */
 .footer {
   background: white;
   color: #333;
@@ -682,9 +676,8 @@ body {
   font-size: 0.875rem;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+/* RESPONSIVE DESIGN
+ */
 @media (max-width: 1200px) {
   .search-row {
     flex-wrap: wrap;
@@ -836,8 +829,8 @@ body {
   }
 
   .flights-hero h1 {
-    font-size: 1.75rem;
-    margin-bottom: 24px;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
   }
   
   .trip-type-selector {
@@ -850,21 +843,19 @@ body {
   
   .trip-type-option span {
     text-align: center;
-    padding: 10px 16px;
-    font-size: 0.875rem;
+    padding: 6px 12px;
+    font-size: 0.75rem;
   }
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
+/* UTILITY CLASSES
+ */
 .hidden {
   display: none !important;
 }
 
-/* ============================================
-   ALERT ANIMATIONS
-   ============================================ */
+/* ALERT ANIMATIONS
+ */
 @keyframes slideIn {
   from {
     transform: translateX(400px);
@@ -887,9 +878,8 @@ body {
   }
 }
 
-/* ============================================
-   FLIGHT CARDS
-   ============================================ */
+/* FLIGHT CARDS
+ */
 .flight-card {
   background: #fff;
   border-radius: 8px;

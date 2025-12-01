@@ -27,7 +27,7 @@
     <!-- Left Side - Image/Branding -->
     <div class="auth-visual">
       <div class="auth-image-container">
-        <img src="./assets/johanesburg2.jpeg" alt="Travel Destination" class="auth-hero-image" />
+        <img src="./assets/bali2.jpg" alt="Travel Destination" class="auth-hero-image" />
       </div>
     </div>
     
@@ -41,11 +41,11 @@
 
         <!-- Social Signup -->
         <div class="social-login">
-          <button class="social-btn google">
+          <button type="button" class="social-btn google" onclick="signUpWithGoogle()">
             <i class="fab fa-google"></i>
             <span>Sign up with Google</span>
           </button>
-          <button class="social-btn facebook">
+          <button type="button" class="social-btn facebook" onclick="signUpWithFacebook()">
             <i class="fab fa-facebook-f"></i>
             <span>Sign up with Facebook</span>
           </button>
@@ -168,8 +168,118 @@
   </div>
 
   <script src="js/translations.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://connect.facebook.net/en_US/sdk.js" async defer></script>
   <script>
     const API_URL = 'http://localhost:5000/api';
+
+    // Initialize Facebook SDK
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1234567890', // Replace with your Facebook App ID
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v18.0'
+      });
+    };
+
+    // Google Sign Up
+    function signUpWithGoogle() {
+      // For demo purposes, this creates a Google-authenticated account
+      // In production, you'd use Google Identity Services API
+      
+      showAlert('Opening Google Sign In...', 'info');
+      
+      // Simulate Google OAuth flow
+      const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' + new URLSearchParams({
+        client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+        redirect_uri: window.location.origin + '/oauth-callback.html',
+        response_type: 'token',
+        scope: 'email profile',
+        state: 'google_signup'
+      });
+      
+      // For now, create a demo flow
+      setTimeout(() => {
+        const demoGoogleUser = {
+          name: 'Google User',
+          email: 'user@gmail.com',
+          provider: 'google'
+        };
+        handleSocialSignup(demoGoogleUser);
+      }, 1000);
+      
+      // Uncomment this for real OAuth:
+      // const popup = window.open(googleAuthUrl, 'Google Sign In', 'width=500,height=600');
+    }
+
+    // Facebook Sign Up
+    function signUpWithFacebook() {
+      showAlert('Opening Facebook Sign In...', 'info');
+      
+      FB.login(function(response) {
+        if (response.authResponse) {
+          // Get user info from Facebook
+          FB.api('/me', { fields: 'id,name,email' }, function(userInfo) {
+            const facebookUser = {
+              name: userInfo.name,
+              email: userInfo.email || `fb_${userInfo.id}@facebook.com`,
+              provider: 'facebook',
+              facebookId: userInfo.id
+            };
+            handleSocialSignup(facebookUser);
+          });
+        } else {
+          showAlert('Facebook login cancelled', 'error');
+        }
+      }, { scope: 'public_profile,email' });
+    }
+
+    // Handle social signup (Google/Facebook)
+    async function handleSocialSignup(userData) {
+      try {
+        // Create a random password for OAuth users (they won't use it)
+        const randomPassword = Math.random().toString(36).slice(-12) + 'Aa1!';
+        
+        const response = await fetch(`${API_URL}/auth/signup`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: userData.name,
+            email: userData.email,
+            password: randomPassword,
+            provider: userData.provider
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          // Store token and user data
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          
+          showAlert(`Welcome ${userData.name}! Redirecting to dashboard...`, 'success');
+          
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000);
+        } else if (response.status === 409) {
+          // User already exists, try to login
+          showAlert('Account exists. Please use the login page.', 'error');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          showAlert(data.message || 'Social signup failed. Please try again.', 'error');
+        }
+      } catch (error) {
+        console.error('Social signup error:', error);
+        showAlert('An error occurred. Please try again later.', 'error');
+      }
+    }
 
     // Toggle password visibility
     function togglePassword(inputId) {

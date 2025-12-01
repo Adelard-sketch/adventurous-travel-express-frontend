@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adventurous-travel-express-frontend.vercel.app/sitemap.xml
