@@ -241,7 +241,7 @@
         // Create a random password for OAuth users (they won't use it)
         const randomPassword = Math.random().toString(36).slice(-12) + 'Aa1!';
         
-        const response = await fetch(`${API_URL}/auth/signup`, {
+        const response = await fetch(`${API_URL}/auth/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -376,7 +376,7 @@
         btnText.style.display = 'none';
         btnLoader.style.display = 'inline-block';
         
-        const response = await fetch(`${API_URL}/auth/signup`, {
+        const response = await fetch(`${API_URL}/auth/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
