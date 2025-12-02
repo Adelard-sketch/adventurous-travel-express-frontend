@@ -2,7 +2,7 @@
 console.log('Hotels page loaded');
 
 // API Configuration
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://adventurous-travel-express-backend.vercel.app/api";
 
 // Global variables
 let allHotels = [];

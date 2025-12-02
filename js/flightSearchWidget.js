@@ -1,6 +1,6 @@
 class FlightSearchWidget {
   constructor() {
-    this.apiURL = 'http://localhost:5000/api/flights';
+    this.apiURL = 'https://adventurous-travel-express-backend.vercel.app/api/flights';
     this.selectedFlight = null;
   }
 
@@ -267,7 +267,7 @@ class FlightSearchWidget {
 
       console.log('Creating flight booking:', bookingData);
 
-      const bookingResponse = await fetch('http://localhost:5000/api/bookings', {
+      const bookingResponse = await fetch('https://adventurous-travel-express-backend.vercel.app/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -4,7 +4,7 @@
  */
 
 class FlightBookingWidget {
-  constructor(apiUrl = 'http://localhost:5000/api') {
+  constructor(apiUrl = 'https://adventurous-travel-express-backend.vercel.app/api') {
     this.apiUrl = apiUrl;
     this.selectedFlight = null;
     this.selectedSeats = [];

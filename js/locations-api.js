@@ -1,7 +1,7 @@
 // Ghana Locations API Wrapper
 // Provides the same interface as ghana-locations.js but fetches from database
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://adventurous-travel-express-backend.vercel.app/api";
 let locationsCache = null;
 let locationsFetchPromise = null;
 
