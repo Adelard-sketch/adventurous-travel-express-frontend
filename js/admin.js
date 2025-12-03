@@ -1,6 +1,6 @@
 // Admin Dashboard JavaScript
 
-const API_URL = '/api';
+const API_URL = 'https://adventurous-travel-express-backend.vercel.app/api';
 let currentSection = 'dashboard';
 let allBookingsData = [];
 
